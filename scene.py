@@ -13,6 +13,7 @@ import pickle
 #Global vars
 active_object = bpy.context.view_layer.objects.active 
 Car = bpy.data.objects["Car"]
+Plate_text = bpy.data.objects["plate_text"]
 Car_body_mat = bpy.data.materials["Body"]
 train_before = r"C:\Users\monac\Documents\GitHub\DeepForSpeed\Dataset\Train\Before"
 train_after = r"C:\Users\monac\Documents\GitHub\DeepForSpeed\Dataset\Train\After"
@@ -39,18 +40,17 @@ def init_pos():
 
 #Execs
 
-speed = random.randint(0,150)
-speed_list.append(speed)
-Car.location.y = init_pos()
-bpy.context.scene.render.filepath = f"{train_before}\{count}.jpg"
-bpy.ops.render.render(write_still = True)
+Plate_text.data.body = "TEST"
 
-Car.location.y += speed_to_dist(speed)
-bpy.context.scene.render.filepath = f"{train_after}\{count}.jpg"
-bpy.ops.render.render(write_still = True)
+# speed = random.randint(0,150)
+# speed_list.append(speed)
+# Car.location.y = init_pos()
+# bpy.context.scene.render.filepath = f"{train_before}\{count}.jpg"
+# bpy.ops.render.render(write_still = True)
 
-with open(train_speed_txt, "wb") as fp:
-    pickle.dump(speed_list, fp)
+# Car.location.y += speed_to_dist(speed)
+# bpy.context.scene.render.filepath = f"{train_after}\{count}.jpg"
+# bpy.ops.render.render(write_still = True)
 
-# with open("test.txt", "rb") as fp:
-#     b = pickle.load(fp)
+# with open(train_speed_txt, "wb") as fp:
+#     pickle.dump(speed_list, fp)
