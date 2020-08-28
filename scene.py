@@ -1,5 +1,6 @@
 import bpy
 import random
+import pickle
 #------------------------------------------------
 #print("hi")
 # bpy.ops.mesh.primitive_cube_add(location=(0,0,0))
@@ -13,7 +14,11 @@ import random
 active_object = bpy.context.view_layer.objects.active 
 Car = bpy.data.objects["Car"]
 Car_body_mat = bpy.data.materials["Body"]
-
+train_before = r"C:\Users\monac\Documents\GitHub\DeepForSpeed\Dataset\Train\Before"
+train_after = r"C:\Users\monac\Documents\GitHub\DeepForSpeed\Dataset\Train\After"
+train_speed_txt = r".\Dataset\Train\speed.txt"
+count = 0
+speed_list = []
 #Fns
 # def select_car():
 #     bpy.ops.object.select_all(action='DESELECT')
@@ -33,7 +38,19 @@ def init_pos():
     return round(random.uniform(3,5),5)
 
 #Execs
-speed = random.randint(0,150)
-Car.location.y = init_pos()
-car.location.y += speed_to_dist(speed)
 
+speed = random.randint(0,150)
+speed_list.append(speed)
+Car.location.y = init_pos()
+bpy.context.scene.render.filepath = f"{train_before}\{count}.jpg"
+bpy.ops.render.render(write_still = True)
+
+Car.location.y += speed_to_dist(speed)
+bpy.context.scene.render.filepath = f"{train_after}\{count}.jpg"
+bpy.ops.render.render(write_still = True)
+
+with open(train_speed_txt, "wb") as fp:
+    pickle.dump(speed_list, fp)
+
+# with open("test.txt", "rb") as fp:
+#     b = pickle.load(fp)
