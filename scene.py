@@ -1,24 +1,39 @@
 import bpy
-
+import random
 #------------------------------------------------
 #print("hi")
 # bpy.ops.mesh.primitive_cube_add(location=(0,0,0))
-#bpy.ops.mesh.primitive_cube_add( size=1, location=(0,0,0))
-
-#print(dir(bpy.data.objects["Car"]))
-
+# bpy.ops.mesh.primitive_cube_add( size=1, location=(0,0,0))
+# print(dir(bpy.data.objects["Car"]))
 # print(dir(bpy.data.textures.get("body")))
-
 # bpy.data.materials["Body"].diffuse_color[0, 0.00289276, 1, 1]
 #------------------------------------------------
 
+#Global vars
 active_object = bpy.context.view_layer.objects.active 
 Car = bpy.data.objects["Car"]
+Car_body_mat = bpy.data.materials["Body"]
 
-def select_car():
-    bpy.ops.object.select_all(action='DESELECT')
+#Fns
+# def select_car():
+#     bpy.ops.object.select_all(action='DESELECT')
+#     active_object = Car
+#     Car.select_set(True)
 
-    active_object = Car
-    Car.select_set(True)
+# def move_car(dist = 1):
+#     select_car()
+#     # bpy.ops.transform.translate(value = (0, dist, 0))
+#     bpy.context.object.location[1] = 3
 
-bpy.ops.transform.translate(value = (0,1,0))
+def speed_to_dist(speed):
+    # mov = "movement in meters in 0.25s:"
+    return round((speed*1000)/(60*60*4),5)
+
+def init_pos():
+    return round(random.uniform(3,5),5)
+
+#Execs
+speed = random.randint(0,150)
+Car.location.y = init_pos()
+car.location.y += speed_to_dist(speed)
+
