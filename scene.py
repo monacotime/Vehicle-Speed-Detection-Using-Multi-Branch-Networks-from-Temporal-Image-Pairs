@@ -18,8 +18,17 @@ Car_body_mat = bpy.data.materials["Body"]
 train_before = r"C:\Users\monac\Documents\GitHub\DeepForSpeed\Dataset\Train\Before"
 train_after = r"C:\Users\monac\Documents\GitHub\DeepForSpeed\Dataset\Train\After"
 train_speed_txt = r".\Dataset\Train\speed.txt"
+license_plate_list = ["MH 1010", "BX 2050", "KP 3001", "PX 8029", "GM 8980"]
+car_colour_list = [
+    [1, 0, 0, 1], 
+    [1, 1, 1, 1], 
+    [1, 1, 0, 1], 
+    [0, 0.5, 1, 1], 
+    [0, 1, 0, 1]] #RED, White, Yellow, blue, green
 count = 0
 speed_list = []
+plate_list = []
+
 #Fns
 # def select_car():
 #     bpy.ops.object.select_all(action='DESELECT')
@@ -40,7 +49,8 @@ def init_pos():
 
 #Execs
 
-Plate_text.data.body = "TEST"
+Plate_text.data.body = random.choice(license_plate_list)
+Car_body_mat.diffuse_color[random.choice(car_colour_list)]
 
 # speed = random.randint(0,150)
 # speed_list.append(speed)
