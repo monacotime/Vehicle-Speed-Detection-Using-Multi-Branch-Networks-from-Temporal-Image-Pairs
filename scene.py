@@ -3,13 +3,21 @@ import random
 import pickle
 random.seed(100)
 
+
+#---------------------------------------------------------------------------
+TRAINING_IMAGE_MAKING_MODE = False #TRUE # IF YOU ARE MAKING TRAINIng IMGS
+#---------------------------------------------------------------------------
+
+
 #Global vars
 active_object = bpy.context.view_layer.objects.active 
 Car = bpy.data.objects["Car"]
 Plate_text = bpy.data.objects["plate_text"]
 Car_body_mat = bpy.data.materials["Body"]
-train_before = r"C:\Users\monac\Documents\GitHub\DeepForSpeed\Dataset\Train\Before"
-train_after = r"C:\Users\monac\Documents\GitHub\DeepForSpeed\Dataset\Train\After"
+train_before = r"C:\Users\monac\Documents\GitHub\DeepForSpeed\Dataset\train\Before"
+train_after = r"C:\Users\monac\Documents\GitHub\DeepForSpeed\Dataset\train\After"
+train_before = r"C:\Users\monac\Documents\GitHub\DeepForSpeed\Dataset\test\Before"
+train_after = r"C:\Users\monac\Documents\GitHub\DeepForSpeed\Dataset\test\After"
 train_speed_txt = r".\Dataset\Train\speed.txt"
 train_licence_txt = r".\Dataset\Train\license.txt"
 license_plate_list = ["MH 1010", "BX 2050", "KP 3001", "PX 8029", "GM 8980"]
