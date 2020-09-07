@@ -37,7 +37,7 @@ def speed_to_dist(speed):
 
 #Execs
 
-for i in range(1000):
+for i in range(100):
     Car_body_mat.diffuse_color = random.choice(car_colour_list)
     
     plate = random.choice(license_plate_list)
