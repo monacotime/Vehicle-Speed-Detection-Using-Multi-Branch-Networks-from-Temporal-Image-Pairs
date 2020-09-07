@@ -16,8 +16,8 @@ Plate_text = bpy.data.objects["plate_text"]
 Car_body_mat = bpy.data.materials["Body"]
 train_before = r"C:\Users\monac\Documents\GitHub\DeepForSpeed\Dataset\train\Before"
 train_after = r"C:\Users\monac\Documents\GitHub\DeepForSpeed\Dataset\train\After"
-train_before = r"C:\Users\monac\Documents\GitHub\DeepForSpeed\Dataset\test\Before"
-train_after = r"C:\Users\monac\Documents\GitHub\DeepForSpeed\Dataset\test\After"
+test_before = r"C:\Users\monac\Documents\GitHub\DeepForSpeed\Dataset\test\Before"
+test_after = r"C:\Users\monac\Documents\GitHub\DeepForSpeed\Dataset\test\After"
 train_speed_txt = r".\Dataset\Train\speed.txt"
 train_licence_txt = r".\Dataset\Train\license.txt"
 license_plate_list = ["MH 1010", "BX 2050", "KP 3001", "PX 8029", "GM 8980"]
@@ -48,11 +48,11 @@ for i in range(1000):
     speed_list.append(speed)
 
     Car.location.y = round(random.uniform(3,5),5)
-    bpy.context.scene.render.filepath = f"{train_before}\{count}.jpg"
+    bpy.context.scene.render.filepath = f"{test_before}\{count}.jpg"
     bpy.ops.render.render(write_still = True)
 
     Car.location.y += speed_to_dist(speed)
-    bpy.context.scene.render.filepath = f"{train_after}\{count}.jpg"
+    bpy.context.scene.render.filepath = f"{test_after}\{count}.jpg"
     bpy.ops.render.render(write_still = True)
 
     count += 1
