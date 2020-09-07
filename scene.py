@@ -18,8 +18,10 @@ train_before = r"C:\Users\monac\Documents\GitHub\DeepForSpeed\Dataset\train\Befo
 train_after = r"C:\Users\monac\Documents\GitHub\DeepForSpeed\Dataset\train\After"
 test_before = r"C:\Users\monac\Documents\GitHub\DeepForSpeed\Dataset\test\Before"
 test_after = r"C:\Users\monac\Documents\GitHub\DeepForSpeed\Dataset\test\After"
-train_speed_txt = r".\Dataset\Train\speed.txt"
-train_licence_txt = r".\Dataset\Train\license.txt"
+train_speed_txt = r".\Dataset\train\speed.txt"
+train_licence_txt = r".\Dataset\train\license.txt"
+test_speed_txt = r".\Dataset\test\speed.txt"
+test_licence_txt = r".\Dataset\test\license.txt"
 license_plate_list = ["MH 1010", "BX 2050", "KP 3001", "PX 8029", "GM 8980"]
 car_colour_list = [
     [1, 0, 0, 1], 
@@ -58,8 +60,8 @@ for i in range(100):
     count += 1
     print("no of pics:", count)
 
-with open(train_speed_txt, "wb") as fp:
+with open(test_speed_txt, "wb") as fp:
     pickle.dump(speed_list, fp)
 
-with open(train_licence_txt, "wb") as fp:
+with open(test_licence_txt, "wb") as fp:
     pickle.dump(plate_list, fp)
