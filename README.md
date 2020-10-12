@@ -1,3 +1,3 @@
 # DeepForSpeed
 
-placeholder
+more details coming soon
