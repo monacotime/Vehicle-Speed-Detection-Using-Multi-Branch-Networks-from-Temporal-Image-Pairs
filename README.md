@@ -1,3 +1,3 @@
-# DeepForSpeed
+# Vehicle Speed Detection Using Multi-Branch Networks from Temporal Image Pairs 
 
-more details coming soon
+Official Github Repo for the research
